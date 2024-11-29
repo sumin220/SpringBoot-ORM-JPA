@@ -4,7 +4,9 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class JpaMain {
 
     public static void main(String[] args) {
@@ -22,17 +24,21 @@ public class JpaMain {
             member.setName("member1");
 
             //영속
-            System.out.println("==BEFORE==");
+            log.info("=================Before================");
             em.persist(member);
             Member findMEmber1 = em.find(Member.class, 1L);
             Member findMEmber2 = em.find(Member.class, 1L);
-            System.out.println(findMEmber1==findMEmber2);
 
-            System.out.println("==AFTER==");
+            log.info(String.valueOf(findMEmber1.equals(findMEmber2)));
+
+            log.info("=================After==================");
 
 
-            System.out.println("findMEmber = " + findMEmber1.getId());
-            System.out.println("findMEmber = " + findMEmber1.getName());
+            Long id = findMEmber1.getId();
+            String name = findMEmber1.getName();
+            log.info("member1 id = " + id);
+            log.info("member1 name = " + name);
+
         } catch (Exception e) {
             tx.rollback();
         }finally {
