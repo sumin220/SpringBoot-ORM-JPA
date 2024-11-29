@@ -19,26 +19,16 @@ public class JpaMain {
         //code
 
         try {
-            Member member = new Member();
-            member.setId(1L);
-            member.setName("member1");
+            Member member1 = new Member(150L, "A");
+            member1.setName("AAAA");
+
+            em.detach(member1);
+
+            log.info("===========================");
 
             //영속
-            log.info("=================Before================");
-            em.persist(member);
-            Member findMEmber1 = em.find(Member.class, 1L);
-            Member findMEmber2 = em.find(Member.class, 1L);
 
-            log.info(String.valueOf(findMEmber1.equals(findMEmber2)));
-
-            log.info("=================After==================");
-
-
-            Long id = findMEmber1.getId();
-            String name = findMEmber1.getName();
-            log.info("member1 id = " + id);
-            log.info("member1 name = " + name);
-
+            tx.commit();
         } catch (Exception e) {
             tx.rollback();
         }finally {
