@@ -13,23 +13,11 @@ import java.util.Date;
 public class Member {
 
     @Id
-    private Long id;
+    private String id;
 
     @Column(unique = true, length = 10, nullable = false)
     private String name;
 
-    private Integer age;
 
-    @Enumerated(EnumType.STRING)
-    private RoleType roleType;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date CreatedDate;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date ModifiedDate;
-
-    @Lob
-    private String descriiption;
 
 }
