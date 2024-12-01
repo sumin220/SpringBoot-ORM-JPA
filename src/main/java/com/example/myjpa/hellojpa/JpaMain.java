@@ -19,16 +19,8 @@ public class JpaMain {
         //code
 
         try {
-            Member member1 = new Member(150L, "A");
-            member1.setName("AAAA");
-
-            em.detach(member1);
-
-            log.info("===========================");
-
-            //영속
-
-            tx.commit();
+            Member member = new Member();
+            member.setId("ID_A");
         } catch (Exception e) {
             tx.rollback();
         }finally {
