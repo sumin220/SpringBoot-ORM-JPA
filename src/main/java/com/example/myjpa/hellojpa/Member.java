@@ -13,7 +13,8 @@ import java.util.Date;
 public class Member {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(unique = true, length = 10, nullable = false)
     private String name;

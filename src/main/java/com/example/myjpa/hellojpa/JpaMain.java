@@ -20,7 +20,8 @@ public class JpaMain {
 
         try {
             Member member = new Member();
-            member.setId("ID_A");
+            member.setName("A");
+            em.persist(member);
         } catch (Exception e) {
             tx.rollback();
         }finally {
