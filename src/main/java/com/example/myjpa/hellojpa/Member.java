@@ -19,6 +19,12 @@ public class Member {
     @Column(unique = true, length = 10, nullable = false)
     private String name;
 
+    private String city;
+
+    private String street;
+
+    private String zipcode;
+
 
 
 }
