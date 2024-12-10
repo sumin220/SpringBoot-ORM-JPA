@@ -1,5 +1,7 @@
 package com.example.myjpa.hellojpa;
 
+import com.example.myjpa.hellobook.Member;
+import com.example.myjpa.hellobook.Order;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -19,9 +21,14 @@ public class JpaMain {
         //code
 
         try {
-            Member member = new Member();
-            member.setName("A");
-            em.persist(member);
+
+            Order order = em.find(Order.class, 1L);
+            Long memberId = order.getMemberId();
+
+            Member member = em.find(Member.class, memberId);
+
+            tx.commit();
+
         } catch (Exception e) {
             tx.rollback();
         }finally {
