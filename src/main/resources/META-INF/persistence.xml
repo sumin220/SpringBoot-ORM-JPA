@@ -1,6 +1,6 @@
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
     <persistence-unit name="hello">
-        <class>com.example.myjpa.hellojpa.Member</class>
+        <class>com.example.myjpa.hellojpa.Member1</class>
         <properties>
             <!-- 데이터베이스 연결 설정 -->
             <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
